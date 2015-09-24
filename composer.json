@@ -1,0 +1,36 @@
+{
+  "nbame": "frozzere/wp-admin-menu-tabs",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "description": "Add edit and admin tabs to admin menu",
+  "authors": [
+    {
+      "name": "Fredrik Forsmo",
+      "email": "fredrik.forsmo@gmail.com",
+      "homepage": "https://github.com/frozzare"
+    }
+  ],
+  "keywords": [
+    "admin",
+    "menu",
+    "tabs"
+  ],
+  "support": {
+    "issues": "https://github.com/frozzere/wp-admin-menu-tabs/issues"
+  },
+  "require": {
+    "php": ">=5.4.7",
+    "composer/installers": "~1.0"
+  },
+  "require-dev": {
+    "frozzare/wp-test-suite": "~1.0",
+    "wp-coding-standards/wpcs": "dev-develop",
+    "sebastian/phpcpd": "~2.0@dev"
+  },
+  "scripts": {
+    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wp-coding-standards/wpcs",
+    "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wp-coding-standards/wpcs"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

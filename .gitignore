@@ -1,0 +1,11 @@
+.idea
+node_modules
+test.php
+tmp/
+*.bak
+.vagrant
+build/
+coverage/
+vendor
+composer.lock
+dist/js/webpack.js

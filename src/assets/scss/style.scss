@@ -1,0 +1,36 @@
+#adminmenu {
+  margin-top: 30px;
+  > li {
+    display: none;
+  }
+  #admintabs {
+    display: block;
+  }
+}
+
+#adminmenutabs {
+  border-bottom: 2px #32373c solid;
+  float: left;
+  display: block !important;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  li {
+    float: left;
+    width: 50%;
+    text-align: center;
+    a {
+      padding: 5px;
+      text-decoration: none;
+      background-color: #23282d;
+      text-align: center;
+      &.active {
+        background: #32373c;
+      }
+    }
+  }
+}
+
+#collapse-menu, #wp-admin-bar-updates, a[href="plugins.php"] .update-plugins {
+  display: none !important;
+}

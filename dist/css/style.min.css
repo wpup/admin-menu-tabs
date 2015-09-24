@@ -1,0 +1,9 @@
+/*!
+ * wp-admin-menu-tabs
+ * Add edit and admin tabs to admin menu
+ * http://github.com/
+ * @author Fredrik Forsmo <fredrik.forsmo@gmail.com>
+ * @version 1.0.0
+ * Copyright 2015. MIT licensed.
+ */
+#adminmenu{margin-top:30px}#adminmenu>li{display:none}#adminmenu #admintabs{display:block}#adminmenutabs{border-bottom:2px #32373c solid;float:left;display:block!important;position:absolute;top:0;width:100%}#adminmenutabs li{float:left;width:50%;text-align:center}#adminmenutabs li a{padding:5px;text-decoration:none;background-color:#23282d;text-align:center}#adminmenutabs li a.active{background:#32373c}#collapse-menu,#wp-admin-bar-updates,a[href="plugins.php"] .update-plugins{display:none!important}
