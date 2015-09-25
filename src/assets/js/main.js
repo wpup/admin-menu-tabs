@@ -47,13 +47,13 @@ class AdminMenuTabs {
    */
   hideMenuItems($lastSeparator, tab) {
     if (tab === 'edit') {
-      $lastSeparator.prevAll().attr('style', 'display: block !important');
-      $lastSeparator.nextAll().removeAttr('style');
+      $lastSeparator.prevAll().show();
+      $lastSeparator.nextAll().hide();
       $('.admin-menu-tab-admin').removeClass('active');
       $('.admin-menu-tab-edit').addClass('active');
     } else {
-      $lastSeparator.prevAll().removeAttr('style');
-      $lastSeparator.nextAll().attr('style', 'display: block !important');
+      $lastSeparator.prevAll().hide();
+      $lastSeparator.nextAll().show();
       $('.admin-menu-tab-admin').addClass('active');
       $('.admin-menu-tab-edit').removeClass('active');
     }
