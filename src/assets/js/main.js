@@ -77,12 +77,9 @@ class AdminMenuTabs {
         $menudashboard.removeClass('wp-has-current-submenu wp-menu-open').addClass('wp-not-current-submenu');
 				$menudashboard.find('a').removeClass('wp-has-current-submenu wp-menu-open');
 			}
-
-      this.hideMenuItems($lastSeparator, 'admin');
-    } else {
-      this.hideMenuItems($lastSeparator, tab);
     }
 
+    this.hideMenuItems($lastSeparator, tab);
   }
 
 }

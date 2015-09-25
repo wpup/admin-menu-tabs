@@ -133,7 +133,7 @@ class Admin_Menu_Tabs {
     	$tab     = isset( $_REQUEST['tab'] ) ? $_REQUEST['tab'] : 'edit';
     	$user    = wp_get_current_user();
     	$user_id = $user->ID;
-    	update_user_meta( $user_id, '_active_admin_tab', $tab );
+    	update_user_meta( $user_id, $this->user_meta_key, $tab );
     	wp_send_json_success();
     }
 
@@ -161,7 +161,7 @@ class Admin_Menu_Tabs {
 		add_action( 'admin_enqueue_scripts', [$this, 'admin_enqueue_scripts'] );
 		add_action( 'admin_head', [$this, 'admin_head'] );
 		add_action( 'admin_menu', [$this, 'admin_menu'] );
-		add_action( 'wp_ajax_change_admin_tab', [$this, 'change_admin_menu_tab'] );
+		add_action( 'wp_ajax_change_admin_menu_tab', [$this, 'change_admin_menu_tab'] );
 	}
 
 }
