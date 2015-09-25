@@ -111,10 +111,6 @@ class Admin_Menu_Tabs {
 	public function admin_menu() {
 		global $menu;
 
-        if ( ! current_user_can( 'update_core' ) ) {
-            return;
-        }
-
 		$update   = wp_get_update_data();
 		$name     = __( 'Uppdateringar', 'admin-menu-tabs' );
 		$position = 81;
@@ -127,7 +123,7 @@ class Admin_Menu_Tabs {
 			$position++;
 		}
 
-		add_menu_page( $name, $name, 'administrator', 'update-core.php', '', '', $position );
+		add_menu_page( $name, $name, 'update_core', 'update-core.php', '', '', $position );
 	}
 
     /**
