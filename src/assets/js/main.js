@@ -67,8 +67,8 @@ class AdminMenuTabs {
   setActiveTab() {
     const $activeTab     = $('.admin-menu-tab.active');
     const $lastSeparator = $('#adminmenu .wp-menu-separator:last');
-    const location       = window.location.href.replace(url, '');
     const url            = window.adminMenuTabs.url;
+    const location       = window.location.href.replace(url, '');
     const tab            = $activeTab.hasClass('admin-menu-tab-edit') ? 'edit' : 'admin';
 
     if (location !== '' && $lastSeparator.nextAll().find('a[href="' + location + '"]').length) {
