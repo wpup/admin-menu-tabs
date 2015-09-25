@@ -23,7 +23,7 @@ class AdminMenuTabs {
   /**
    * Change tab on click.
    *
-   * @param  {object} $this
+   * @param {object} $this
    */
   changeTab(e) {
     const $this          = $(e.currentTarget);
@@ -42,8 +42,8 @@ class AdminMenuTabs {
   /**
    * Hide menu items.
    *
-   * @param  {object} $lastSeparator
-   * @param  {string} tab
+   * @param {object} $lastSeparator
+   * @param {string} tab
    */
   hideMenuItems($lastSeparator, tab) {
     if (tab === 'edit') {
