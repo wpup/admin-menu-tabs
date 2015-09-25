@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Admin Menu Tabs
- * Description: Add edit and admin tabs to admin men
+ * Description: Add edit and admin tabs to admin menu and move updates after option menu.
  * Author: Fredrik Forsmo
  * Author URI: http://forsmo.me
  * Version: 1.0.0

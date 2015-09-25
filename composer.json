@@ -2,7 +2,7 @@
   "name": "frozzere/wp-admin-menu-tabs",
   "type": "wordpress-plugin",
   "license": "MIT",
-  "description": "Add edit and admin tabs to admin menu",
+  "description": " Add edit and admin tabs to admin menu and move updates after option menu",
   "authors": [
     {
       "name": "Fredrik Forsmo",
