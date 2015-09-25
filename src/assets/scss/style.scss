@@ -1,6 +1,6 @@
 #adminmenu {
-  li.menu-top {
-    display: none;
+  > li {
+    display: none !important;
   }
   #admintabs {
     display: block;
