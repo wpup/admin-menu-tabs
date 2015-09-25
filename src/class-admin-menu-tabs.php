@@ -54,7 +54,7 @@ class Admin_Menu_Tabs {
 			</li>
 			<li>
 				<a href="#" class="admin-menu-tab admin-menu-tab-admin <?php echo $tab === 'admin' ? 'active' : ''; ?>"><?php _e( 'Admin', 'admin-menu-tabs' ); ?>
-					<?php if ( $update['counts']['total'] ): ?>
+					<?php if ( $update['counts']['total'] && current_user_can( 'update_core' ) ): ?>
 					<span class="update-plugins count-<?php echo $update['counts']['total']; ?>">
 						<span class="plugin-count"><?php echo $update['counts']['total']; ?></span>
 					</span>
@@ -110,6 +110,10 @@ class Admin_Menu_Tabs {
 	 */
 	public function admin_menu() {
 		global $menu;
+
+        if ( ! current_user_can( 'update_core' ) ) {
+            return;
+        }
 
 		$update   = wp_get_update_data();
 		$name     = __( 'Uppdateringar', 'admin-menu-tabs' );
