@@ -1,5 +1,5 @@
 {
-  "nbame": "frozzere/wp-admin-menu-tabs",
+  "name": "frozzere/wp-admin-menu-tabs",
   "type": "wordpress-plugin",
   "license": "MIT",
   "description": "Add edit and admin tabs to admin menu",
