@@ -136,7 +136,7 @@ class Admin_Menu_Tabs {
 		global $menu;
 
 		$update   = wp_get_update_data();
-		$name     = __( 'Uppdateringar', 'admin-menu-tabs' );
+		$name     = __( 'Updates', 'admin-menu-tabs' );
 		$position = 81;
 
 		if ( $update['counts']['total'] ) {
