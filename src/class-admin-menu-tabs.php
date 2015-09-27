@@ -86,11 +86,11 @@ class Admin_Menu_Tabs {
 			true
 		);
 
-        ?>
+		?>
 		<script type="text/javascript">
-            window.adminMenuTabs = {
-                url: '<?php echo admin_url(); ?>'
-            };
+			window.adminMenuTabs = {
+				url: '<?php echo admin_url(); ?>'
+			};
 		</script>
 		<?php
 	}
@@ -106,9 +106,9 @@ class Admin_Menu_Tabs {
 			null
 		);
 
-        if (current_user_can( 'administrator' )) {
-            ?>
-            <style type="text/css">
+		if ( current_user_can( 'administrator' ) ) {
+			?>
+			<style type="text/css">
 				@media only screen and (min-width: 782px) {
 					#adminmenu {
 						margin-top: 30px;
@@ -124,9 +124,9 @@ class Admin_Menu_Tabs {
 						margin-top: 40px;
 					}
 				}
-            </style>
-            <?php
-        }
+			</style>
+			<?php
+		}
 	}
 
 	/**
@@ -150,31 +150,31 @@ class Admin_Menu_Tabs {
 		add_menu_page( $name, $name, 'update_core', 'update-core.php', '', '', $position );
 	}
 
-    /**
-     * Change admin menu tab.
-     */
-    public function change_admin_menu_tab() {
-    	$tab     = isset( $_REQUEST['tab'] ) ? $_REQUEST['tab'] : 'edit';
-    	$user    = wp_get_current_user();
-    	$user_id = $user->ID;
-    	update_user_meta( $user_id, $this->user_meta_key, $tab );
-    	wp_send_json_success();
-    }
+	/**
+	 * Change admin menu tab.
+	 */
+	public function change_admin_menu_tab() {
+		$tab     = isset( $_REQUEST['tab'] ) ? $_REQUEST['tab'] : 'edit';
+		$user    = wp_get_current_user();
+		$user_id = $user->ID;
+		update_user_meta( $user_id, $this->user_meta_key, $tab );
+		wp_send_json_success();
+	}
 
-    /**
-     * Get plugin url.
-     *
-     * @return string
-     */
-    private function get_plugin_url() {
-        $plugin_url = plugin_dir_url( __FILE__ );
+	/**
+	 * Get plugin url.
+	 *
+	 * @return string
+	 */
+	private function get_plugin_url() {
+		$plugin_url = plugin_dir_url( __FILE__ );
 
-        if ( is_ssl() ) {
-            $plugin_url = str_replace( 'http://', 'https://', $plugin_url );
-        }
+		if ( is_ssl() ) {
+			$plugin_url = str_replace( 'http://', 'https://', $plugin_url );
+		}
 
-        return str_replace( 'src/', 'dist/', $plugin_url );
-    }
+		return str_replace( 'src/', 'dist/', $plugin_url );
+	}
 
 	/**
 	 * Setup actions.
@@ -187,12 +187,11 @@ class Admin_Menu_Tabs {
 		add_action( 'admin_menu', [$this, 'admin_menu'] );
 		add_action( 'wp_ajax_change_admin_menu_tab', [$this, 'change_admin_menu_tab'] );
 	}
-
 }
 
 /**
  * Load Admin Menu Tabs plugin.
  */
 add_filter( 'plugins_loaded', function () {
-    return Admin_Menu_Tabs::instance();
+	return Admin_Menu_Tabs::instance();
 } );
