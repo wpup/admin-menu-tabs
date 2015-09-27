@@ -12,16 +12,16 @@ class Admin_Menu_Tabs {
     private $user_meta_key = '_active_admin_menu_tab';
 
     /**
-     * The instance of Papi loader class.
+     * The instance of the loader class.
      *
-     * @var Papi_Loader
+     * @var \Frozzare\Admin_Menu_Tabs\Admin_Menu_Tabs
      */
     private static $instance;
 
     /**
-     * Papi loader instance.
+     * The loader instance.
      *
-     * @return Papi_Loader
+     * @return \Frozzare\Admin_Menu_Tabs\Admin_Menu_Tabs
      */
     public static function instance() {
         if ( ! isset( self::$instance ) ) {
