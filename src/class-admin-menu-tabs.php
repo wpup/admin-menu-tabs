@@ -109,12 +109,20 @@ class Admin_Menu_Tabs {
         if (current_user_can( 'administrator' )) {
             ?>
             <style type="text/css">
-				#adminmenu {
-                    margin-top: 30px;
-                }
+				@media only screen and (min-width: 782px) {
+					#adminmenu {
+						margin-top: 30px;
+					}
 
-				.auto-fold #adminmenu {
-					margin-top: 0;
+					.auto-fold #adminmenu {
+						margin-top: 0px;
+					}
+				}
+
+				@media only screen and (max-width: 782px) {
+					.auto-fold #adminmenu {
+						margin-top: 40px;
+					}
 				}
             </style>
             <?php

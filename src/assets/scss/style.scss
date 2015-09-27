@@ -38,20 +38,36 @@
   display: block !important;
 }
 
-@media only screen and (max-width: 960px) {
-  #wp-admin-bar-updates,
-  a[href="plugins.php"] .update-plugins,
-  .admin-menu-tabs-hide {
+@media only screen and (max-width: 782px) {
+  #adminmenutabs {
+    top: -40px;
+
+    li a {
+      padding: 10px 5px !important;
+    }
+  }
+
+  #collapse-menu {
     display: none !important;
   }
 }
 
-.auto-fold {
-  #adminmenu li.menu-top {
-    display: block;
-  }
-
-  #adminmenutabs {
+@media only screen and (max-width: 960px) {
+  #wp-admin-bar-updates,
+  .admin-menu-tabs-hide,
+  a[href="plugins.php"] .update-plugins {
     display: none !important;
+  }
+}
+
+@media only screen and (min-width: 782px) {
+  .auto-fold {
+    #adminmenu li.menu-top {
+      display: block;
+    }
+
+    #adminmenutabs {
+      display: none !important;
+    }
   }
 }
