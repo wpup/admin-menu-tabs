@@ -109,9 +109,13 @@ class Admin_Menu_Tabs {
         if (current_user_can( 'administrator' )) {
             ?>
             <style type="text/css">
-                #adminmenu {
+				#adminmenu {
                     margin-top: 30px;
                 }
+
+				.auto-fold #adminmenu {
+					margin-top: 0;
+				}
             </style>
             <?php
         }

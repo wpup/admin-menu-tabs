@@ -18,6 +18,7 @@ class AdminMenuTabs {
    */
   binds() {
     $(document).on('click', '.admin-menu-tab', this.changeTab.bind(this));
+    $(document).on('wp-collapse-menu', this.setActiveTab.bind(this));
   }
 
   /**
@@ -30,6 +31,8 @@ class AdminMenuTabs {
     const $adminmenu     = $('#adminmenu');
     const $lastSeparator = $adminmenu.find('.wp-menu-separator:last');
     const tab            = $this.hasClass('admin-menu-tab-edit') ? 'edit' : 'admin';
+
+    e.preventDefault();
 
     this.hideMenuItems($lastSeparator, tab);
 
@@ -65,7 +68,6 @@ class AdminMenuTabs {
     }
 
     $lastSeparator.hide();
-    $collapseMenu.show();
   }
 
   /**

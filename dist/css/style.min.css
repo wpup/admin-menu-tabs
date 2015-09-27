@@ -1,9 +1,9 @@
 /*!
  * wp-admin-menu-tabs
- * Add edit and admin tabs to admin menu
+ *  Add edit and admin tabs to admin menu and move updates after option menu
  * http://github.com/
  * @author Fredrik Forsmo <fredrik.forsmo@gmail.com>
  * @version 1.0.0
  * Copyright 2015. MIT licensed.
  */
-#adminmenu>li{display:none}#adminmenu #admintabs{display:block}#adminmenutabs{border-bottom:2px #32373c solid;float:left;position:absolute;top:0;width:100%}#adminmenutabs li{float:left;width:50%;text-align:center}#adminmenutabs li a{padding:5px;text-decoration:none;background-color:#23282d;text-align:center}#adminmenutabs li a.active{background:#32373c}.admin-menu-tabs-show{display:block!important}#collapse-menu,#wp-admin-bar-updates,.admin-menu-tabs-hide,a[href="plugins.php"] .update-plugins{display:none!important}
+#adminmenu li.menu-top{display:none}#adminmenu #adminmenutabs{display:block}#adminmenutabs{border-bottom:2px #32373c solid;float:left;position:absolute;top:0;width:100%}#adminmenutabs li{float:left;width:50%;text-align:center}#adminmenutabs li a{padding:5px;text-decoration:none;background-color:#23282d;text-align:center}#adminmenutabs li a.active{background:#32373c}#collapse-menu,.admin-menu-tabs-show{display:block!important}@media only screen and (max-width:960px){#wp-admin-bar-updates,.admin-menu-tabs-hide,a[href="plugins.php"] .update-plugins{display:none!important}}.auto-fold #adminmenu li.menu-top{display:block}.auto-fold #adminmenutabs{display:none!important}
