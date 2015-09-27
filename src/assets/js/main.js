@@ -46,19 +46,26 @@ class AdminMenuTabs {
    * @param {string} tab
    */
   hideMenuItems($lastSeparator, tab) {
+    const $collapseMenu = $lastSeparator.parent().find('#collapse-menu');
+    const $nextAll      = $lastSeparator.nextAll();
+    const $prevAll      = $lastSeparator.prevAll();
+
     if (tab === 'edit') {
-      $lastSeparator.prevAll().show();
-      $lastSeparator.nextAll().hide();
+      $prevAll.show();
+      $nextAll.hide();
+      $collapseMenu.show().insertAfter($prevAll.first());
       $('.admin-menu-tab-admin').removeClass('active');
       $('.admin-menu-tab-edit').addClass('active');
     } else {
-      $lastSeparator.prevAll().hide();
-      $lastSeparator.nextAll().show();
+      $prevAll.hide();
+      $nextAll.show();
+      $collapseMenu.insertAfter($nextAll.eq($nextAll.length - 2));
       $('.admin-menu-tab-admin').addClass('active');
       $('.admin-menu-tab-edit').removeClass('active');
     }
 
     $lastSeparator.hide();
+    $collapseMenu.show();
   }
 
   /**
