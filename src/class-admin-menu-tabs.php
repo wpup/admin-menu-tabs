@@ -113,10 +113,6 @@ class Admin_Menu_Tabs {
                     #adminmenu {
                         margin-top: 30px;
                     }
-
-                    .auto-fold #adminmenu {
-                        margin-top: 0px;
-                    }
                 }
 
                 @media only screen and (max-width: 782px) {

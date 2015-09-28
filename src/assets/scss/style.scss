@@ -2,7 +2,6 @@
   li.menu-top {
     display: none;
   }
-
   #adminmenutabs {
     display: block;
   }
@@ -14,18 +13,15 @@
   position: absolute;
   top: 0;
   width: 100%;
-
   li {
     float: left;
     width: 50%;
     text-align: center;
-
     a {
       padding: 5px;
       text-decoration: none;
       background-color: #23282d;
       text-align: center;
-
       &.active {
         background: #32373c;
       }
@@ -33,41 +29,41 @@
   }
 }
 
-#collapse-menu,
-.admin-menu-tabs-show {
+.folded {
+  #adminmenu {
+    margin-top: 0;
+  }
+  #adminmenutabs {
+    display: none !important;
+  }
+}
+
+#collapse-menu, .admin-menu-tabs-show {
   display: block !important;
 }
 
 @media only screen and (max-width: 782px) {
   #adminmenutabs {
     top: -40px;
-
     li a {
       padding: 10px 5px !important;
     }
   }
-
   #collapse-menu {
     display: none !important;
   }
-}
-
-@media only screen and (max-width: 960px) {
-  #wp-admin-bar-updates,
-  .admin-menu-tabs-hide,
-  a[href="plugins.php"] .update-plugins {
-    display: none !important;
-  }
-}
-
-@media only screen and (min-width: 782px) {
   .auto-fold {
     #adminmenu li.menu-top {
       display: block;
     }
-
     #adminmenutabs {
       display: none !important;
     }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  #wp-admin-bar-updates, .admin-menu-tabs-hide, a[href="plugins.php"] .update-plugins {
+    display: none !important;
   }
 }
