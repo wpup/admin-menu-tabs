@@ -1,6 +1,6 @@
 /* global $, ajaxurl */
 
-let $ = window.jQuery;
+const $ = window.jQuery;
 
 class AdminMenuTabs {
 
