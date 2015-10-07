@@ -78,6 +78,10 @@ class Admin_Menu_Tabs {
      * Enqueue script into admin footer.
      */
     public function admin_enqueue_scripts() {
+        if ( ! current_user_can( 'administrator' ) ) {
+            return;
+        }
+
         wp_enqueue_script(
             'admin-menu-tabs-main',
             $this->get_plugin_url() . 'js/main.min.js',
@@ -99,6 +103,10 @@ class Admin_Menu_Tabs {
      * Add style to admin head.
      */
     public function admin_head() {
+        if ( ! current_user_can( 'administrator' ) ) {
+            return;
+        }
+
         wp_enqueue_style(
             'admin-menu-tabs-main',
             $this->get_plugin_url() . '/css/style.min.css',
@@ -106,23 +114,21 @@ class Admin_Menu_Tabs {
             null
         );
 
-        if ( current_user_can( 'administrator' ) ) {
-            ?>
-            <style type="text/css">
-                @media only screen and (min-width: 782px) {
-                    #adminmenu {
-                        margin-top: 30px;
-                    }
+        ?>
+        <style type="text/css">
+            @media only screen and (min-width: 782px) {
+                #adminmenu {
+                    margin-top: 30px;
                 }
+            }
 
-                @media only screen and (max-width: 782px) {
-                    .auto-fold #adminmenu {
-                        margin-top: 40px;
-                    }
+            @media only screen and (max-width: 782px) {
+                .auto-fold #adminmenu {
+                    margin-top: 40px;
                 }
-            </style>
-            <?php
-        }
+            }
+        </style>
+        <?php
     }
 
     /**
