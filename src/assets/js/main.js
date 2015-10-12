@@ -1,6 +1,4 @@
-/* global $, ajaxurl */
-
-const $ = window.jQuery;
+/* global window, document, $ */
 
 class AdminMenuTabs {
 
@@ -84,8 +82,8 @@ class AdminMenuTabs {
       if (location === 'update-core.php') {
         const $menudashboard = $('#menu-dashboard');
         $menudashboard.removeClass('wp-has-current-submenu wp-menu-open').addClass('wp-not-current-submenu');
-				$menudashboard.find('a').removeClass('wp-has-current-submenu wp-menu-open');
-			}
+        $menudashboard.find('a').removeClass('wp-has-current-submenu wp-menu-open');
+      }
     }
 
     this.hideMenuItems($lastSeparator, tab);

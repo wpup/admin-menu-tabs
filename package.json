@@ -11,6 +11,8 @@
     "babel-eslint": "^3.0",
     "babel-loader": "^5.3.2",
     "del": "^2.0.1",
+    "eslint": "^1.6.0",
+    "eslint-config-xo-multi-spaces": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.1",
     "gulp-concat": "^2.4",
