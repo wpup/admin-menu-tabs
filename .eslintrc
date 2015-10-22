@@ -1,6 +1,14 @@
 {
-  "extends": "xo-multi-spaces/esnext",
+  "extends": "semistandard",
+  "globals": {
+    "papi": true
+  },
   "rules": {
-    "object-shorthand": 0
+    "space-before-function-paren": 0,
+    "no-multi-spaces": [1, {
+      "exceptions": {
+        "VariableDeclarator": true
+      }
+    }]
   }
 }

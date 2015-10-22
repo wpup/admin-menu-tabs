@@ -1,4 +1,6 @@
-/* global window, document, $ */
+/* global window, document */
+
+const $ = window.jQuery === undefined ? {} : window.jQuery;
 
 class AdminMenuTabs {
 
@@ -25,14 +27,14 @@ class AdminMenuTabs {
    * @param {object} $this
    */
   changeTab(e) {
-    const $this          = $(e.currentTarget);
-    const $adminmenu     = $('#adminmenu');
-    const $lastSeparator = $adminmenu.find('.wp-menu-separator:last');
-    const tab            = $this.hasClass('admin-menu-tab-edit') ? 'edit' : 'admin';
+    const $this      = $(e.currentTarget);
+    const $adminmenu = $('#adminmenu');
+    const $separator = this.getSeparator($adminmenu.find('.wp-menu-separator'));
+    const tab        = $this.hasClass('admin-menu-tab-edit') ? 'edit' : 'admin';
 
     e.preventDefault();
 
-    this.hideMenuItems($lastSeparator, tab);
+    this.hideMenuItems($separator, tab);
 
     $.post(window.ajaxurl, {
       action: 'change_admin_menu_tab',
@@ -43,13 +45,13 @@ class AdminMenuTabs {
   /**
    * Hide menu items.
    *
-   * @param {object} $lastSeparator
+   * @param {object} $separator
    * @param {string} tab
    */
-  hideMenuItems($lastSeparator, tab) {
-    const $collapseMenu = $lastSeparator.parent().find('#collapse-menu');
-    const $nextAll      = $lastSeparator.nextAll();
-    const $prevAll      = $lastSeparator.prevAll();
+  hideMenuItems($separator, tab) {
+    const $collapseMenu = $separator.parent().find('#collapse-menu');
+    const $nextAll      = $separator.nextAll();
+    const $prevAll      = $separator.prevAll();
 
     if (tab === 'edit') {
       $prevAll.show();
@@ -65,20 +67,32 @@ class AdminMenuTabs {
       $('.admin-menu-tab-edit').removeClass('active');
     }
 
-    $lastSeparator.hide();
+    $separator.hide();
+  }
+
+  /**
+   * Get separator.
+   *
+   * @param  {object} $separators
+   *
+   * @return {object}
+   */
+  getSeparator($separators) {
+    let index = $('#adminmenutabs').data('separator');
+    return $separators.eq(index);
   }
 
   /**
    * Set active tab.
    */
   setActiveTab() {
-    const $activeTab     = $('.admin-menu-tab.active');
-    const $lastSeparator = $('#adminmenu .wp-menu-separator:last');
-    const url            = window.adminMenuTabs.url;
-    const location       = window.location.href.replace(url, '');
-    const tab            = $activeTab.hasClass('admin-menu-tab-edit') ? 'edit' : 'admin';
+    const $activeTab = $('.admin-menu-tab.active');
+    const $separator = this.getSeparator($('#adminmenu .wp-menu-separator'));
+    const url        = window.adminMenuTabs.url;
+    const location   = window.location.href.replace(url, '');
+    const tab        = $activeTab.hasClass('admin-menu-tab-edit') ? 'edit' : 'admin';
 
-    if (location !== '' && $lastSeparator.nextAll().find('a[href="' + location + '"]').length) {
+    if (location !== '' && $separator.nextAll().find('a[href="' + location + '"]').length) {
       if (location === 'update-core.php') {
         const $menudashboard = $('#menu-dashboard');
         $menudashboard.removeClass('wp-has-current-submenu wp-menu-open').addClass('wp-not-current-submenu');
@@ -86,7 +100,7 @@ class AdminMenuTabs {
       }
     }
 
-    this.hideMenuItems($lastSeparator, tab);
+    this.hideMenuItems($separator, tab);
   }
 
 }

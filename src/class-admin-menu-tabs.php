@@ -42,15 +42,16 @@ class Admin_Menu_Tabs {
      * Render admin menu tabs.
      */
     public function adminmenu() {
-        $user    = wp_get_current_user();
-        $user_id = $user->ID;
-        $tab     = get_user_meta( $user_id, $this->user_meta_key, true );
-        $tab     = empty( $tab ) ? 'edit' : $tab;
-        $update  = wp_get_update_data();
-        $admin   = current_user_can( 'administrator' );
-        $tab     = $admin ? $tab : 'edit';
+        $user      = wp_get_current_user();
+        $user_id   = $user->ID;
+        $tab       = get_user_meta( $user_id, $this->user_meta_key, true );
+        $tab       = empty( $tab ) ? 'edit' : $tab;
+        $update    = wp_get_update_data();
+        $admin     = current_user_can( 'administrator' );
+        $tab       = $admin ? $tab : 'edit';
+        $separator = (int) apply_filters( 'admin_menu_tabs_separator', 1 );
         ?>
-        <ul id="adminmenutabs" class="admin-menu-tabs-<?php echo $admin ? 'show' : 'hide'; ?>">
+        <ul id="adminmenutabs" data-separator="<?php echo $separator; ?>" class="admin-menu-tabs-<?php echo $admin ? 'show' : 'hide'; ?>">
             <li>
                 <a href="#" class="admin-menu-tab admin-menu-tab-edit <?php echo $tab === 'edit' ? 'active' : ''; ?>"><?php _e( 'Edit', 'admin-menu-tabs' ); ?></a>
             </li>
