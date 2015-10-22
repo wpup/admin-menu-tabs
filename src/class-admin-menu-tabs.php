@@ -60,10 +60,13 @@ class Admin_Menu_Tabs {
         ?>
         <ul id="adminmenutabs" data-separator="<?php echo $separator; ?>" class="admin-menu-tabs-<?php echo $admin ? 'show' : 'hide'; ?>">
             <li>
-                <a href="#" class="admin-menu-tab admin-menu-tab-edit <?php echo $tab === 'edit' ? 'active' : ''; ?>"><?php _e( 'Edit', 'admin-menu-tabs' ); ?></a>
+                <a href="#" class="admin-menu-tab admin-menu-tab-edit <?php echo $tab === 'edit' ? 'active' : ''; ?>">
+                    <?php _e( 'Edit', 'admin-menu-tabs' ); ?>
+                </a>
             </li>
             <li>
-                <a href="#" class="admin-menu-tab admin-menu-tab-admin <?php echo $tab === 'admin' ? 'active' : ''; ?>"><?php _e( 'Admin', 'admin-menu-tabs' ); ?>
+                <a href="#" class="admin-menu-tab admin-menu-tab-admin <?php echo $tab === 'admin' ? 'active' : ''; ?>">
+                    <?php _e( 'Admin', 'admin-menu-tabs' ); ?>
                     <?php if ( $update['counts']['total'] && current_user_can( 'update_core' ) ): ?>
                     <span class="update-plugins count-<?php echo $update['counts']['total']; ?>">
                         <span class="plugin-count"><?php echo $update['counts']['total']; ?></span>

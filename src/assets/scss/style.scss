@@ -42,6 +42,18 @@
   display: block !important;
 }
 
+@media only screen and (max-width: 960px) {
+  .auto-fold {
+    #adminmenu li.menu-top {
+      display: block !important;
+    }
+
+    #adminmenutabs {
+      display: none !important;
+    }
+  }
+}
+
 @media only screen and (max-width: 782px) {
   #adminmenutabs {
     top: -40px;
@@ -51,14 +63,6 @@
   }
   #collapse-menu {
     display: none !important;
-  }
-  .auto-fold {
-    #adminmenu li.menu-top {
-      display: block;
-    }
-    #adminmenutabs {
-      display: none !important;
-    }
   }
 }
 
