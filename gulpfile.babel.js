@@ -9,7 +9,6 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import cssmin from 'gulp-cssmin';
-import uglify from 'gulp-uglify';
 import concat from 'gulp-concat';
 import header from 'gulp-header';
 import autoprefixer from 'gulp-autoprefixer';
@@ -129,7 +128,7 @@ gulp.task('sass', () => {
  * Scripts task.
  */
 gulp.task('scripts', () => {
-	gulp.src([config.scripts.entry])
+  gulp.src([config.scripts.entry])
     .pipe(concat('main.min.js'))
     .pipe(header(banner, {
       package: pkg
