@@ -19,6 +19,7 @@ class AdminMenuTabs {
   binds() {
     $(document).on('click', '.admin-menu-tab', this.changeTab.bind(this));
     $(document).on('wp-collapse-menu', this.setActiveTab.bind(this));
+    $(window).resize(this.resize.bind(this));
   }
 
   /**
@@ -40,6 +41,17 @@ class AdminMenuTabs {
       action: 'change_admin_menu_tab',
       tab: tab
     });
+  }
+
+  /**
+   * Reset collapse menu when active tab is hidden.
+   *
+   * @param  {object} $separator
+   */
+  hideCollapseMenu($separator) {
+    const $collapseMenu = $separator.parent().find('#collapse-menu');
+    const $nextAll      = $separator.nextAll();
+    $collapseMenu.insertAfter($nextAll.eq($nextAll.length - 2));
   }
 
   /**
@@ -83,6 +95,21 @@ class AdminMenuTabs {
   }
 
   /**
+   * Show all menu items when active tab is hidden.
+   */
+  resize() {
+    const $activeTab  = $('.admin-menu-tab.active');
+    const $separator  = this.getSeparator($('#adminmenu .wp-menu-separator'));
+
+    if (!$activeTab.is(':visible')) {
+      this.hideCollapseMenu($separator);
+    } else if (!$('li.menu-top:visible').length) {
+      const tab = $activeTab.hasClass('admin-menu-tab-edit') ? 'admin' : 'edit';
+      this.hideMenuItems($separator, tab);
+    }
+  }
+
+  /**
    * Set active tab.
    */
   setActiveTab() {
@@ -92,15 +119,19 @@ class AdminMenuTabs {
     const location   = window.location.href.replace(url, '');
     const tab        = $activeTab.hasClass('admin-menu-tab-edit') ? 'edit' : 'admin';
 
-    if (location !== '' && $separator.nextAll().find('a[href="' + location + '"]').length) {
-      if (location === 'update-core.php') {
-        const $menudashboard = $('#menu-dashboard');
-        $menudashboard.removeClass('wp-has-current-submenu wp-menu-open').addClass('wp-not-current-submenu');
-        $menudashboard.find('a').removeClass('wp-has-current-submenu wp-menu-open');
+    if (!$activeTab.is(':visible')) {
+      this.hideCollapseMenu($separator);
+    } else {
+      if (location !== '' && $separator.nextAll().find('a[href="' + location + '"]').length) {
+        if (location === 'update-core.php') {
+          const $menudashboard = $('#menu-dashboard');
+          $menudashboard.removeClass('wp-has-current-submenu wp-menu-open').addClass('wp-not-current-submenu');
+          $menudashboard.find('a').removeClass('wp-has-current-submenu wp-menu-open');
+        }
       }
-    }
 
-    this.hideMenuItems($separator, tab);
+      this.hideMenuItems($separator, tab);
+    }
   }
 
 }
