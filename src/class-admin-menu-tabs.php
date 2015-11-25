@@ -54,7 +54,7 @@ class Admin_Menu_Tabs {
          * Change which separator that will be the break
          * between edit and admin mode.
          *
-         * @var int
+         * @param int $separator
          */
         $separator = (int) apply_filters( 'admin_menu_tabs_separator', 1 );
         ?>
@@ -193,14 +193,6 @@ class Admin_Menu_Tabs {
      * Setup actions.
      */
     private function setup_actions() {
-        /**
-         * Enable or disable admin menu tabs on network admin.
-         * Default is disabled.
-         */
-        if ( apply_filters( 'admin_menu_tabs_network_admin', is_network_admin() ) ) {
-            return;
-        }
-
         add_action( 'adminmenu', [$this, 'adminmenu'] );
         add_action( 'admin_init', [$this, 'admin_init'] );
         add_action( 'admin_enqueue_scripts', [$this, 'admin_enqueue_scripts'] );
@@ -214,5 +206,12 @@ class Admin_Menu_Tabs {
  * Load Admin Menu Tabs plugin.
  */
 add_filter( 'plugins_loaded', function () {
+    /**
+     * Enable or disable admin menu tabs on network admin. Default is disabled.
+     */
+    if ( apply_filters( 'admin_menu_tabs_network_admin', is_network_admin() ) ) {
+        return;
+    }
+
     return Admin_Menu_Tabs::instance();
 } );
