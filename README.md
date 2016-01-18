@@ -1,7 +1,5 @@
 # Admin Menu Tabs
 
-> Work in progress
-
 Add edit and admin tabs to admin menu and move updates after options menu.
 
 ## Installation
@@ -14,6 +12,6 @@ $ composer require frozzare/wp-admin-menu-tabs
 
 ![Admin Menu Tabs](https://cloud.githubusercontent.com/assets/14610/10093981/6c431280-635a-11e5-958e-591f06705fb3.png)
 
-# License
+## License
 
 MIT © [Fredrik Forsmo](https://github.com/frozzare)
