@@ -15,9 +15,6 @@
     "menu",
     "tabs"
   ],
-  "support": {
-    "issues": "https://github.com/frozzere/wp-admin-menu-tabs/issues"
-  },
   "require": {
     "php": ">=5.4.7",
     "composer/installers": "~1.0"

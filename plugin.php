@@ -5,7 +5,7 @@
  * Description: Add edit and admin tabs to admin menu and move updates after option menu.
  * Author: Fredrik Forsmo
  * Author URI: http://forsmo.me
- * Version: 1.0.0
+ * Version: 1.0.1
  * Plugin URI: https://github.com/frozzare/wp-admin-menu-tabs
  * Textdomain: admin-menu-tabs
  */
