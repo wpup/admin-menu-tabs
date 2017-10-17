@@ -5,7 +5,7 @@ Add edit and admin tabs to admin menu and move updates after options menu.
 ## Installation
 
 ```
-$ composer require frozzare/wp-admin-menu-tabs
+composer require frozzare/wp-admin-menu-tabs
 ```
 
 ## Screenshot
