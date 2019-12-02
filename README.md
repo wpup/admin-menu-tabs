@@ -1,5 +1,7 @@
 # Admin Menu Tabs
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 Add edit and admin tabs to admin menu and move updates after options menu.
 
 ## Installation
